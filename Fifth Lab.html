@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 5 DOM Elements and Events</title>
+    <style>
+        * {
+            font-family: blatant;
+        }
+        
+        legend {
+            font-size: 25px;
+        }
+        
+        fieldset {
+            border-radius: 15px;
+            border-color: royalblue;
+            font-size: 30px;
+        }
+        
+        input[type=text] {
+            width: auto;
+            border-radius: 15px;
+            border-color: royalblue;
+            background-color: royalblue;
+            color: white;
+            padding: 10px 20px;
+            margin: 8px 0;
+            font-size: 15px;
+        }
+        
+        input[type=text]:focus {
+            background-color: white;
+            border: 3px solid white;
+            color: black;
+        }
+        
+         ::placeholder {
+            color: white;
+            opacity: 0.75;
+        }
+        
+        #btn2 {
+            background: linear-gradient(rgb(0, 255, 106), rgb(179, 255, 0));
+            color: white;
+            border-radius: 5px;
+            border-color: limegreen;
+            scale: 1.5;
+        }
+        
+        #btn3 {
+            background: linear-gradient(rgb(0, 255, 106), rgb(179, 255, 0));
+            color: white;
+            border-radius: 5px;
+            border-color: limegreen;
+            scale: 1.5;
+        }
+        
+        #btn2:hover {
+            background: linear-gradient( rgb(179, 255, 0), rgb(16, 228, 217));
+        }
+        
+        #btn3:hover {
+            background: linear-gradient( rgb(179, 255, 0), rgb(16, 228, 217));
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        img {
+            width: 25%;
+            height: auto;
+        }
+        
+        #from {
+            border-radius: 5px;
+            border-color: royalblue;
+            scale: 1.5;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+        #to {
+            border-radius: 5px;
+            border-color: crimson;
+            scale: 1.5;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+        #btn4 {
+            background: linear-gradient(rgb(0, 255, 106), rgb(179, 255, 0));
+            color: white;
+            border-radius: 5px;
+            border-color: limegreen;
+            scale: 1.5;
+            margin-left: 50px;
+        }
+        
+        #btn4:hover {
+            background: linear-gradient( rgb(179, 255, 0), rgb(16, 228, 217));
+        }
+        
+        input[type=radio] {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        #cal {
+            background: linear-gradient(rgb(0, 255, 106), rgb(179, 255, 0));
+            color: white;
+            border-radius: 5px;
+            border-color: limegreen;
+            scale: 1.5;
+            margin-left: 50px;
+        }
+        
+        #cal:hover {
+            background: linear-gradient( rgb(179, 255, 0), rgb(16, 228, 217));
+        }
+    </style>
+    <script>
+        function checkstr() {
+            var st = document.getElementById('word').value;
+            const myarr = st.split(" ");
+            var short = myarr[0];
+            var long = myarr[0];
+            for (let i = 1; i < myarr.length; i++) {
+                if (short.length > myarr[i].length) {
+                    short = myarr[i];
+                } else if (long.length < myarr[i].length) {
+                    long = myarr[i];
+                }
+            }
+            document.getElementById('short').innerHTML = short;
+            document.getElementById('long').innerHTML = long;
+        }
+
+        function BMIcal() {
+            var wt = parseFloat(document.getElementById('weight').value);
+            var ht = parseFloat(document.getElementById('height').value);
+            var BMI = (wt / (ht * ht));
+            document.getElementById('score').innerHTML = BMI;
+            if (BMI < 18) {
+                document.getElementById('type').innerHTML = 'Underweight';
+            } else if (BMI >= 18 & BMI < 25) {
+                document.getElementById('type').innerHTML = 'Normal';
+            } else if (BMI >= 25 & BMI <= 30) {
+                document.getElementById('type').innerHTML = 'Overweight';
+            } else {
+                document.getElementById('type').innerHTML = 'Obesity';
+            }
+        }
+
+        function grow() {
+            var imgarr = ["https://media.baamboozle.com/uploads/images/301685/1616607863_40694_url.jpeg",
+                "https://static.vecteezy.com/system/resources/previews/002/756/720/non_2x/orange-fruit-vector.jpg"
+            ];
+            var row = parseInt(document.getElementById('row').value);
+            var col = parseInt(document.getElementById('col').value);
+            var number = Math.floor((Math.random() * imgarr.length) + 0);
+            for (let i = 0; i < row; i++) {
+                for (let j = 0; j < col; j++) {
+                    document.getElementById('garden').innerHTML += "<img src=" + imgarr[number] + ">";
+                }
+                document.getElementById('garden').innerHTML += "<br>";
+            }
+        }
+
+        function invert1() {
+            var fr = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            if (fr == "INR") {
+                document.getElementById('to').value = 'USD';
+            } else if (to == "USD") {
+                document.getElementById('to').value = 'INR';
+            }
+
+        }
+
+        function invert2() {
+            var fr = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            if (to == "INR") {
+                document.getElementById('from').value = 'USD';
+            } else if (to == "USD") {
+                document.getElementById('from').value = 'INR';
+            }
+
+        }
+
+        function convert() {
+            var fr = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            var mon = parseFloat(document.getElementById('money').value);
+            if (fr == 'INR') {
+                document.getElementById('resultmon').innerHTML = 'USD of INR (' + mon + ') : ' + (mon * 0.015)
+            } else {
+                document.getElementById('resultmon').innerHTML = 'INR of USD (' + mon + ') : ' + (mon * 67.12)
+            }
+
+        }
+
+        function flip() {
+            var img = document.getElementById('target');
+            var numheads = parseInt(document.getElementById('headsno').innerHTML);
+            var numtails = parseInt(document.getElementById('tailsno').innerHTML);
+            const arrimg = ["https://cdn.dribbble.com/users/1326994/screenshots/15626476/media/1f86d7bc804fb70f54cca141ee0d5037.jpg?compress=1&resize=400x300",
+                "https://cdn4.vectorstock.com/i/thumb-large/62/53/dogecoin-sign-icon-xdg-logo-crypto-vector-41056253.jpg"
+            ];
+            var choice = Math.floor((Math.random() * arrimg.length) + 0);
+            if (choice == 0) {
+                numheads += 1;
+                img.src = arrimg[choice];
+                document.getElementById('headsno').innerHTML = numheads;
+            } else if (choice == 1) {
+                numtails += 1;
+                img.src = arrimg[choice];
+                document.getElementById('tailsno').innerHTML = numtails;
+            }
+        }
+
+        function calculate() {
+            var price = 0;
+            var cake1 = parseFloat(document.getElementById('small').value);
+            var cake2 = parseFloat(document.getElementById('medium').value);
+            var cake3 = parseFloat(document.getElementById('large').value);
+
+            price = ((cake1 * 100) + (cake2 * 200) + (cake3 * 400));
+            price += ((9 / price) * 100);
+            var tip = document.querySelector("input[name='tip']:checked").value;
+            price += ((tip / price) * 100);
+            price = Math.round(price);
+            document.getElementById('final').innerHTML = price;
+        }
+    </script>
+</head>
+
+<body>
+    <!-- <body style="background-image:url('https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_16be1ecc46e7c0a3aa68e646af904c66ea8e1c81.1920x1080.jpg?t=1661275467');background-repeat: no-repeat;background-attachment: fixed;"></body> -->
+    <fieldset>
+        <legend><b>Question 1</b></legend>
+        <b>Enter a String : </b><input type="text" name="word" id="word" onmouseout="checkstr()" style="width:500px;">&nbsp;&nbsp;
+        <!-- <button id="btn1" onclick="checkstr()">Click</button> -->
+        Shortest Word : <span id="short" style="color:orange ;"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Longest Word : <span id="long" style="color:rebeccapurple ;"></span>
+    </fieldset><br><br>
+    <fieldset>
+        <legend><b>Question 2</b></legend>
+        <h1>Calculate your Body Mass Index (BMI)!</h1>
+        <b>Weight : </b><input type="text" name="weight" id="weight" placeholder="Enter the Weight">&nbsp;&nbsp;
+        <b>Height : </b><input type="text" name="height" id="height" placeholder="Enter the Height">&nbsp;&nbsp;&nbsp;
+        <button onclick="BMIcal()" id="btn2">Calculate BMI!</button>
+        <br><br>Your BMI is <span id="score"></span><br><br>Your Body type is <span id="type"></span>
+    </fieldset><br><br>
+    <fieldset>
+        <legend><b>Question 3</b></legend>
+        <h1>Fruit Farm</h1>
+        <b>Rows : </b><input type="text" name="rows" id="row" placeholder="Enter the Rows">&nbsp;&nbsp;&nbsp;
+        <b>Columns : </b><input type="text" name="col" id="col" placeholder="Enter the Columns">&nbsp;&nbsp;&nbsp;
+        <button id="btn3" onclick="grow()">Plant Garden</button>
+        <br><br>
+        <div id="garden" style="text-align:center;"></div>
+    </fieldset><br><br>
+    <fieldset>
+        <legend><b>Question 4</b></legend>
+        <input type="text" name="money" id="money" placeholder="Enter INR or USD">&nbsp;&nbsp;&nbsp; from&nbsp;&nbsp;
+        <select name="from" id="from" onclick="invert1()">
+            <option value="INR">Indian Rupee</option>
+            <option value="USD">U.S.Dollars</option>
+        </select>&nbsp;&nbsp;&nbsp; to &nbsp;&nbsp; <select name="to" id="to" onclick="invert2()">
+            <option value="USD">U.S.Dollars</option>
+            <option value="INR">Indian Rupee</option>
+        </select>
+        <button id="btn4" onclick="convert()">Convert</button>&nbsp;&nbsp;&nbsp;
+        <span id="resultmon"></span>
+    </fieldset><br><br>
+    <fieldset>
+        <legend><b>Question 5</b></legend>
+        <figure>
+            <figcaption style="margin-left:70px;margin-bottom: 10px;">click the Image to flip!</figcaption>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTayJWoph4Uw8RPGoMwvGTev15Iy1yZpCayhw&usqp=CAU" alt="coins" id="target" onclick="flip()">
+        </figure>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Heads : <span id="headsno">0</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tails : <span id="tailsno">0</span>
+    </fieldset><br><br>
+    <fieldset>
+        <legend><b>Question 6</b></legend>
+        <h1>Bakery Order Form</h1>
+        Number of 1/2kg Cakes : <input type="text" name="small" id="small" value="0">&nbsp;&nbsp;&nbsp; Number of 1kg Cakes : <input type="text" name="medium" id="medium" value="0">&nbsp;&nbsp;&nbsp; Number of 2kg Cakes : <input type="text" name="large"
+            id="large" value="0"> <br> Tip :
+        <input type="radio" name="tip" value="10"> 10%&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="tip" value="15" checked="checked"> 15%&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="tip" value="20"> 20% <br>
+        <button id="cal" onclick="calculate()">Calculate Order</button>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp &nbsp;Total Cost of Order : <span id="final"></span>
+    </fieldset>
+</body>
+
+</html>
