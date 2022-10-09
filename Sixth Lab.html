@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 6</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-
+    gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-
+ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="js for lab six.js"></script>
+    <style>
+        body {
+            background-image: url('https://metro.co.uk/wp-content/uploads/2021/05/deathloop-keyart-4de0.jpg?quality=90&strip=all');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .rect {
+            height: 100px;
+            width: 750px;
+            background-color: chocolate;
+            margin: 30px 0px 30px 0px;
+            color: aqua;
+        }
+        
+        .rect2 {
+            width: 100%;
+            height: 400px;
+            background-color: white;
+            filter: opacity(0.85);
+        }
+        
+        #q1 {
+            margin-top: 20px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            border-color: chocolate;
+            background-color: chocolate;
+            color: white;
+            font-size: 25px;
+        }
+        
+        #q1:hover {
+            background-color: white;
+            color: black;
+        }
+        
+        #rect1 {
+            width: 1000px;
+            margin-left: 900px;
+        }
+        
+        #para {
+            text-align: center;
+            font-size: 50px;
+            padding-top: 50px;
+        }
+        
+        #rect2-3 {
+            height: 300px;
+        }
+        
+        #rect2-4 {
+            height: 440px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Question 1 -->
+    <h1 class="text-center p-4 text-warming" style="-webkit-text-fill-color:transparent; -webkit-text-stroke: 5px;font-size: 100px; color: chocolate;">JAVASCRIPT - TIMER & OBJECTS</h1>
+    <div class='rect'>
+        <h1 class="text-center p-4 text-warming" style="-webkit-text-fill-color:transparent; -webkit-text-stroke: 5px;font-size: 120px;">TIMER</h1>
+    </div><br><br><br><br><br>
+    <div class="rect2">
+        <div class="container col-sm-6 mt-5" align="center">
+            <button id="q1" onclick="q1()">Display</button>
+            <div id="clock" class=" container text-center text-warning " style="font-size: 150px;"></div>
+            <div id="stop" class=" container text-center text-warning bg"></div>
+        </div>
+    </div><br><br>
+
+    <!-- Question 2 -->
+    <div class='rect' id="rect1">
+        <h1 class="text-center p-4 text-warming" style="-webkit-text-fill-color:transparent; -webkit-text-stroke: 5px;font-size: 120px;">BACKGROUND</h1>
+    </div><br><br><br><br><br>
+    <div class="rect2" id="rect2">
+        <script>
+            q2();
+        </script>
+    </div><br><br>
+
+    <!-- Question 3 -->
+    <div class='rect'>
+        <h1 class="text-center p-4 text-warming" style="-webkit-text-fill-color:transparent; -webkit-text-stroke: 5px;font-size: 120px;">HOVER</h1>
+    </div><br><br><br><br><br>
+    <div class="rect2" id="rect2-3">
+        <div id="para" onmouseover="q3inc()" onmouseout="q3dec()">“Life's full of maybes.That's what makes it life. - Colt, Deathloop”</div>
+    </div><br><br>
+
+    <!-- Question 4 -->
+    <div class='rect' id="rect1">
+        <h1 class="text-center p-4 text-warming" style="-webkit-text-fill-color:transparent; -webkit-text-stroke: 5px;font-size: 120px;">MY CAR</h1>
+    </div><br><br><br><br><br>
+    <div class="rect2" id="rect2-4">
+        <img src="https://i.pinimg.com/originals/9a/a9/78/9aa9781a33667e0f99f620060bdae3f6.png" alt="chevy impala 1967" style="scale:calc(0.75);position: relative;right: 0px;" id="chevy67">
+        <div align="center">
+            <button onclick="q4Start()" class="btn btn-outline-primary ">Start</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button onclick="q4Stop()" class="btn btn-outline-danger">Stop</button>
+        </div>
+    </div><br><br>
+
+    <!-- Question 5 -->
+    <div class='rect'>
+        <h1 class="text-center p-4 text-warming" style="-webkit-text-fill-color:transparent; -webkit-text-stroke: 5px;font-size: 120px;">ARRAY</h1>
+    </div><br><br><br><br><br>
+    <div class="rect2" style="text-align:center;">
+        <button id="q1" onclick="q5()">Print</button>
+        <div class="row">
+            <div class="col-sm-6 tex-center">
+                <h5 id="bfr" class="text-warning"></h5><br>
+                <p id="before" class="text-warning"></p>
+            </div>
+
+            <div class="col-sm-6 tex-center">
+                <h5 id="aft" class="text-warning"></h5><br>
+                <p id="after" class="text-warning"></p>
+            </div>
+        </div>
+    </div><br><br>
+</body>
+
+</html>
