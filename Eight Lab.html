@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 8 Angular JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app = angular.module('Q1', []);
+        app.controller('Controller1', function($scope) {
+            $scope.comment = [];
+            $scope.btn_add = function() {
+                if ($scope.txtcomnt != '') {
+                    $scope.comment.push($scope.txtcomnt);
+                    $scope.txtcomnt = '';
+                }
+            }
+
+            $scope.remitem = function($index) {
+                $scope.comment.splice($index, 1);
+            }
+
+            $scope.result = function() {
+                if ($scope.operator == '+') {
+                    return $scope.a + $scope.b
+                }
+                if ($scope.operator == '-') {
+                    return $scope.a - $scope.b
+                }
+                if ($scope.operator == '*') {
+                    return $scope.a * $scope.b
+                }
+                if ($scope.operator == '/') {
+                    return $scope.a / $scope.b
+                }
+            }
+
+            $scope.tasks = [];
+            $scope.add = function() {
+                $scope.tasks.push($scope.title)
+            }
+        })
+    </script>
+    <style>
+        * {
+            font-family: blatant;
+            color: white;
+        }
+        
+        #btn {
+            margin-top: 10px;
+            color: black;
+            border: none;
+            border-radius: 7px;
+        }
+        
+        #btn:hover {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            transform: scale(1.1);
+            transition: all 0.3s;
+        }
+        
+        select {
+            color: black;
+        }
+        
+        option {
+            color: black;
+        }
+    </style>
+</head>
+
+<body style="background-image:url('https://digitalsynopsis.com/wp-content/uploads/2019/08/beautiful-illustrations-design-inspiration-36.png');background-size:cover;background-repeat: no-repeat;">
+    <div ng-app="Q1" ng-controller="Controller1">
+        <span style="text-align: center;">
+            <h1>Comment stack</h1>
+           <div> Post Your Comment <br><br>
+            <textarea name="txtarea" id="cmt" cols="50" rows="6" placeholder="Your Comment" ng-model="txtcomnt" style="border:1px dashed black;filter:drop-shadow(5px 10px 18px rgb(240, 96, 96));border-radius:8px;color:black;"></textarea><br>
+            <button id="btn" ng-click="btn_add()"  >Post Comment</button>
+            <h4 style="margin-right:300px"><u>Comments</u></h4></div>
+            <ul>
+                <!-- <li ng-repeat="comnt in comment">{{comnt}} <span ng-click="remitem($index)">&nbsp;&nbsp;x</span></li> -->
+        <li ng-repeat="comnt in comment">{{comnt}}&nbsp;&nbsp;<button ng-click="remitem($index)">x</button></li>
+        </ul>
+        </span>
+
+        <div style="text-align: center;">
+            <hr>
+            <h4>Simple Calculator</h4>
+            Enter Number 1 :
+            <p><input type="number" ng-model="a" value="0"></p>
+            Enter Number 2 :
+            <p><input type="number" ng-model="b" value="0"></p>
+            <p><select ng-model="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select></p>
+            <p>{{result()}}</p>
+
+        </div>
+        <div>
+            <hr>
+            <h4>To-do List</h4>
+            <input type="text" ng-model="title" style="color:black;"><button ng-click="add()" id="btn">ADD</button>
+            <ul>
+                <li ng-repeat="t in tasks">{{t}}</li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+
+</html>
