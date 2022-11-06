@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 7 Working with JQuery</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+        
+        #lane1,
+        #lane2,
+        #lane3,
+        #lane4 {
+            padding: 30px 0 30px;
+            position: relative;
+            height: 80px;
+        }
+        
+        img {
+            /* transform: rotateX(0deg); */
+            width: 150px;
+            height: auto;
+        }
+        
+        #small,
+        #medium,
+        #large {
+            padding: 5px;
+            text-align: center;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 50%;
+            height: 10px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        
+        .slider:hover {
+            opacity: 1;
+        }
+        /* .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 23px;
+            height: 24px;
+            border: 0;
+            background: url('D:\ Web Technology\ terzo tyre.png');
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 23px;
+            height: 24px;
+            border: 0;
+            background: url('D:\ Web Technology\ terzo tyre.png');
+            cursor: pointer;
+        } */
+        
+        #tyre {
+            scale: 3;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myrange').change(function() {
+                $('#v').html($('#myrange').val());
+                $('#tyre').css('scale', '' + 7 * ($('#myrange').val() / 100) + '');
+            });
+            $('#start').click(function() {
+                let i = 0;
+                while (i < 10) {
+                    if ((parseInt($('#lane1').css('top')) < -10) || (parseInt($('#lane1').css('top')) > 100)) {
+                        $('#car1').fadeOut();
+                        // $('#lane1').fadeOut();
+                        // $('#lane1').animate({
+                        //     left: '0px',
+                        //     top: '0px'
+                        // }, 1000);
+                        // $('#car1').fadeIn(1);
+                        i = 11;
+
+                    } else {
+                        if ((Math.floor(Math.random() * (2 - 1) + 1)) == 1) {
+                            $('#lane1').animate({
+                                left: '+=' + Math.floor(Math.random() * (250 - 1) + 1) + 'px',
+                                top: '+=' + Math.floor(Math.random() * (100 - 1) + 1) + 'px',
+
+                            }, 500);
+                        } else {
+                            $('#lane1').animate({
+                                left: '+=' + Math.floor(Math.random() * (250 - 1) + 1) + 'px',
+                                top: '-=' + Math.floor(Math.random() * (100 - 1) + 1) + 'px'
+
+                            }, 500);
+                        }
+                        // alert($('#lane1').css('top'))
+                    }
+
+                    if ((parseInt($('#lane2').css('top')) < -10) || (parseInt($('#lane2').css('top')) > 100)) {
+                        $('#car2').fadeOut();
+                        // $('#lane1').fadeOut();
+                        // $('#lane1').animate({
+                        //     left: '0px',
+                        //     top: '0px'
+                        // }, 1000);
+                        // $('#car1').fadeIn(1);
+                        i = 11;
+
+                    } else {
+                        if ((Math.floor(Math.random() * (2 - 1) + 1)) == 1) {
+                            $('#lane2').animate({
+                                left: '+=' + Math.floor(Math.random() * (250 - 1) + 1) + 'px',
+                                top: '+=' + Math.floor(Math.random() * (100 - 1) + 1) + 'px',
+
+                            }, 500);
+                        } else {
+                            $('#lane2').animate({
+                                left: '+=' + Math.floor(Math.random() * (250 - 1) + 1) + 'px',
+                                top: '-=' + Math.floor(Math.random() * (100 - 1) + 1) + 'px'
+
+                            }, 500);
+                        }
+                        // alert($('#lane1').css('top'))
+                    }
+
+                    if ((parseInt($('#lane3').css('top')) < -10) || (parseInt($('#lane3').css('top')) > 100)) {
+                        $('#car3').fadeOut();
+                        // $('#lane1').fadeOut();
+                        // $('#lane1').animate({
+                        //     left: '0px',
+                        //     top: '0px'
+                        // }, 1000);
+                        // $('#car1').fadeIn(1);
+                        i = 11;
+
+                    } else {
+                        if ((Math.floor(Math.random() * (2 - 1) + 1)) == 1) {
+                            $('#lane3').animate({
+                                left: '+=' + Math.floor(Math.random() * (250 - 1) + 1) + 'px',
+                                top: '+=' + Math.floor(Math.random() * (100 - 1) + 1) + 'px',
+
+                            }, 500);
+                        } else {
+                            $('#lane3').animate({
+                                left: '+=' + Math.floor(Math.random() * (250 - 1) + 1) + 'px',
+                                top: '-=' + Math.floor(Math.random() * (100 - 1) + 1) + 'px'
+
+                            }, 500);
+                        }
+                        // alert($('#lane1').css('top'))
+                    }
+
+                    if ((parseInt($('#lane4').css('top')) < -10) || (parseInt($('#lane4').css('top')) > 100)) {
+                        $('#car4').fadeOut();
+                        // $('#lane1').fadeOut();
+                        // $('#lane1').animate({
+                        //     left: '0px',
+                        //     top: '0px'
+                        // }, 1000);
+                        // $('#car1').fadeIn(1);
+                        i = 11;
+
+                    } else {
+                        if ((Math.floor(Math.random() * (2 - 1) + 1)) == 1) {
+                            $('#lane4').animate({
+                                left: '+=' + Math.floor(Math.random() * (250 - 1) + 1) + 'px',
+                                top: '+=' + Math.floor(Math.random() * (100 - 1) + 1) + 'px',
+
+                            }, 500);
+                        } else {
+                            $('#lane4').animate({
+                                left: '+=' + Math.floor(Math.random() * (250 - 1) + 1) + 'px',
+                                top: '-=' + Math.floor(Math.random() * (100 - 1) + 1) + 'px'
+
+                            }, 500);
+                        }
+                        // alert($('#lane1').css('top'))
+                    }
+
+                    i += 1;
+                }
+            })
+
+        })
+
+        function changecolor(col) {
+            if (col == 'gold') {
+                $('#lambo').css('filter', 'hue-rotate(' + 90 + 'deg)');
+            } else if (col == 'violet') {
+                $('#lambo').css('filter', 'hue-rotate(180deg)');
+            } else if (col == 'green') {
+                $('#lambo').css('filter', 'hue-rotate(270deg)');
+
+            } else if (col == 'red') {
+                $('#lambo').css('filter', 'hue-rotate(45deg)');
+
+            }
+        }
+
+        function changecol(col) {
+            col = col.split('#');
+            $('#lambo').css('filter', 'hue-rotate(' + parseInt(col[1], 16) + 'deg)');
+        }
+
+
+        function changebg(value) {
+            if (value == 'small') {
+                $('#tyre').css('scale', '' + 7 * 0.25 + '');
+            } else if (value == 'medium') {
+                $('#tyre').css('scale', '' + 7 * 0.5 + '');
+            } else if (value == 'large') {
+                $('#tyre').css('scale', '' + 7 + '');
+            }
+        }
+
+        function changeti(col) {
+            if (col == 'gold') {
+                $('#windshield').css('filter', 'hue-rotate(' + 90 + 'deg)');
+            } else if (col == 'violet') {
+                $('#windshield').css('filter', 'hue-rotate(180deg)');
+            } else if (col == 'green') {
+                $('#windshield').css('filter', 'hue-rotate(270deg)');
+
+            } else if (col == 'red') {
+                $('#windshield').css('filter', 'hue-rotate(45deg)');
+
+            }
+        }
+
+        function changetint(col) {
+            col = col.split('#');
+            $('#windshield').css('filter', 'hue-rotate(' + parseInt(col[1], 16) + 'deg)');
+
+        }
+
+        function reset() {
+            changecol('#000000');
+            changetint('#000000');
+            changebg('medium');
+        }
+
+        function check() {
+            if (($('#fname').val() != '') & ($('#lname').val() != '')) {
+                $('#required').css('color', 'red');
+                $('#required').html('Form Accepted');
+            } else {
+                $('#required').css('color', 'black');
+                $('#required').html('Form Not Accepted');
+            }
+        }
+
+        function addbtn() {
+            $('#space').append('<button onclick="alert(\'Button clicked!\')">Attribute</button>&nbsp;&nbsp;&nbsp;');
+        }
+
+        function removebtn() {
+            $('#space').children().last().remove();
+        }
+
+        function submit() {
+            $('#result').html("&nbsp;&nbsp;&nbsp;&nbsp;Your First Name : " + $('#fname').val() + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Last Name : " + $('#lname').val());
+        }
+    </script>
+</head>
+
+<body>
+    <div class="lane1" style="border: solid 2px yellow;">
+        <div id="lane1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5a4Q0LsOKs4jdh6VLObzmdi5rnq60M84og&usqp=CAU" alt="car1" id="car1">
+        </div>
+    </div>
+    <div class="lane1" style="border: solid 2px skyblue;">
+        <div id="lane2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5a4Q0LsOKs4jdh6VLObzmdi5rnq60M84og&usqp=CAU" alt="car2" style="filter:hue-rotate(160deg);" id="car2">
+        </div>
+    </div>
+    </div>
+    <div class="lane1" style="border: solid 2px green;">
+        <div id="lane3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5a4Q0LsOKs4jdh6VLObzmdi5rnq60M84og&usqp=CAU" alt="car3" style="filter:hue-rotate(55deg)" id="car3">
+        </div>
+    </div>
+    <div class="lane1" style="border: solid 2px palevioletred;">
+        <div id="lane4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5a4Q0LsOKs4jdh6VLObzmdi5rnq60M84og&usqp=CAU" alt="car4" style="filter:hue-rotate(295deg)" id="car4">
+        </div>
+    </div>
+    <button id="start">start</button><br><br>
+
+    <div>
+        <fieldset style="margin: 10px;border:solid 5px black;border-radius : 15px;">
+            <legend>Vehicle Booking Form</legend>
+            <div style="margin: 20px">
+                First Name : <input type="text" id="fname" onkeyup="check()"> &nbsp;&nbsp;&nbsp;Last Name : <input type="text" id="lname" onkeyup="check()"> <span id="required"></span>
+            </div>
+            <div style="margin: 20px;">
+                <button id="add" onclick="addbtn()">Add Attributes</button>&nbsp;&nbsp;&nbsp;
+                <button id="remove" onclick="removebtn()">Remove Attributes</button>
+                <div id="space" style="margin: 40px;">
+                </div>
+            </div>
+            <div style="margin: 20px;">
+                <button onclick="submit()">Submit</button>
+                <span id="result"></span></div>
+        </fieldset>
+    </div>
+
+    <fieldset style="border: solid 5px black;border-radius:15px;margin:10px;padding-left: 300px;">
+        <legend><b>Customize</b></legend>
+        <div>
+            <span><img src="https://www.pngplay.com/wp-content/uploads/13/Lamborghini-Terzo-Millennio-Transparent-Images.png" alt="bmw" style="scale: 5;padding-left: 100px;padding-top: 50px;" id="lambo"></span><span style="padding-left:600px ;">select color : <input type="color" onchange="changecol(value)"> Select Color :
+                <select id="col" onchange="changecolor(value)">
+                <option value="gold">Gold</option>
+                <option value="violet">Violet</option>
+                <option value="green">green</option>
+                <option value="red">red</option>
+                </select></span>
+        </div>
+
+        <!-- <span style="background-color:None;">
+        <fieldset style="border:solid 4px black; border-radius: 15px;padding: 30px;">
+            <legend>Tyre Sizes</legend>
+            <span id="small" onclick="changebg('small')">
+                <img src="D:\Web Technology\terzo tyre.png" alt="terzo tyres">
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="medium" onclick="changebg('medium')">
+                <img src="D:\Web Technology\terzo tyre.png" alt="terzo tyres" style="scale:1.5 ;">
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="large" onclick="changebg('large')">
+                <img src="D:\Web Technology\terzo tyre.png" alt="terzo tyres" style="scale:2 ;">
+            </span>
+    </fieldset>
+
+    </span> -->
+        <div style="padding-top: 400px;padding-left: 300px;">
+            <img src="https://www.fixmyquack.com/wp-content/uploads/2017/08/Windshield-Replacement-Glass.png" alt="windshield" id="windshield" style="scale: 2.5;">
+            <span style="padding-left: 400px;">
+                select tint : <input type="color" id="tint" onchange="changetint(value)">
+                Select Color :
+                <select id="col tint" onchange="changeti(value)">
+                <option value="gold">Gold</option>
+                <option value="violet">Violet</option>
+                <option value="green">green</option>
+                <option value="red">red</option>
+                </select>
+            </span>
+        </div>
+        <div style="padding:400px 300px 200px 300px;">
+            <img src="D:\Web Technology\terzo tyre.png" alt="terzo tyres" id="tyre">
+            <span style="padding-left: 245px;">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myrange" > Value : <span id="v">50</span>
+            <br><br>
+            <span style="padding-left:550px">
+            <button value="small" onclick="changebg(value)">Small</button>&nbsp;&nbsp;<button value="medium" onclick="changebg(value)">Medium</button>&nbsp;&nbsp;<button value="large" onclick="changebg(value)">Large</button>
+
+                </span>
+            </span>
+        </div>
+        <button style="scale: 2; margin-left: 600px;" onclick="reset()">Reset</button>
+    </fieldset>
+
+</body>
+
+</html>
