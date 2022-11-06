@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NODE JS Form</title>
+</head>
+
+<body style="background-image: url('https://www.timeanddate.com/gfx/cd/christmas--2.png');background-repeat:no-repeat;background-size:cover ;font-family: Poppins;">
+    <form action="/server1" method="post">
+        <h1 style="text-align: center;font-family: ROG fonts;color:crimson;font-size: 70px;filter: drop-shadow(5px 5px 10px royalblue);"><b>MegaPlay</b></h1>
+        <h2 style="text-align: center;color:cornflowerblue;filter: drop-shadow(2px 2px 4px black);font-size: 35px;">Registration Form</h2>
+        <div style="margin-left: 680px;font-size: 25px;color:darkgreen;background-color: white;border-radius: 20px;padding: 20px;margin-right:680px;filter: drop-shadow(2px 2px 20px black);">
+            Name : &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="username" id="" style="border-radius: 5px;"> <br><br> Registration Number : &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="userid" id="" style="border-radius: 5px;"> <br><br> Year of
+            Study : &nbsp;&nbsp;&nbsp;&nbsp;
+            <select name="useryear" id="" style="border-radius: 5px;">
+                <option value="I - UG">I UG</option>
+                <option value="II - UG">II UG</option>
+                <option value="III - UG">III UG</option>
+                <option value="IV - UG">IV UG</option>
+                <option value="I - PG">I PG</option>
+                <option value="II - PG">II PG</option>
+                </select><br><br> School : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="userschool" id="">
+                    <option value="Engineering">Engineering</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Arts,Science,Media">Arts,Science,Media</option>
+                </select> <br><br> Department : &nbsp;&nbsp;&nbsp;&nbsp;
+            <select name="userdept" id="" style="border-radius: 5px;">
+                <option value="Aerospace Engineering">Aerospace Engineering</option>
+                <option value="Artificial Intelligence and Data Science">Artificial Intelligence and Data Science</option>
+                <option value="Biomedical Engineering">Biomedical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+                <option value="Electronics and Computer Engineering">Electronics and Computer Engineering</option>
+                <option value="Food Processing and Engineering">Food Processing and Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value=" Robotics and Automation"> Robotics and Automation</option>
+                <option value="Agriculture">Agriculture</option>
+                </select> <br><br> Event : &nbsp;&nbsp;<input type="checkbox" name="userevent[]" id="ms" value="Music"><label for="ms" style="color: black;font-size:15px;">Music</label>&nbsp;&nbsp;<input type="checkbox" name="userevent[]"
+                id="ch" value="Choreography">
+            <label for="ch" style="color: black;font-size:15px;">Choreography</label>&nbsp;&nbsp;<input type="checkbox" name="userevent[]" id="sg" value="Singing">
+            <label for="sg" style="color: black;font-size:15px;">Singing</label> <br>
+            <div style="margin-left:100px;">
+                <input type="checkbox" name="userevent[]" id="bs" value="Backstage"><label for="bs" style="color: black;font-size:15px;">Backstage</label>&nbsp;&nbsp;
+                <input type="checkbox" name="userevent[]" id="fc" value="Finance"><label for="fc" style="color: black;font-size:15px;">Finance</label>&nbsp;&nbsp;
+                <input type="checkbox" name="userevent[]" id="ps" value="Purchase"><label for="ps" style="color: black;font-size:15px;">Purchase</label>&nbsp;&nbsp;</div>
+            <div style="margin-left:100px;">
+                <input type="checkbox" name="userevent[]" id="vl" value="Volunteer"><label for="vl" style="color: black;font-size:15px;">Volunteer</label>&nbsp;&nbsp;
+                <input type="checkbox" name="userevent[]" id="et" value="etc."><label for="et" style="color: black;font-size:15px;">etc..</label>&nbsp;&nbsp;</div>
+        </div><br>
+        <div style="text-align: center;">
+            <button type="submit" style="text-align:center;font-size: 25px;border-radius: 10px;background-color: transparent;color:darkgreen;border-color: darkgreen;">Submit</button></div>
+
+    </form>
+</body>
+
+</html>
