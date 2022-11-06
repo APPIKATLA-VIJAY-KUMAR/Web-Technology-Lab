@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 9 Angular JS Routing</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script>
+        var app = angular.module("myapp", ['ngRoute']);
+        app.config(function($routeProvider) {
+            $routeProvider.when('/', {
+                templateUrl: 'home9L.html'
+            })
+
+            .when('/URK20CS2108', {
+                templateUrl: 'URK20CS2108.html'
+            })
+
+            .when('/URK20CS2114', {
+                templateUrl: 'URK20CS2114.html'
+            })
+
+            .when('/URK20CS3006', {
+                templateUrl: 'URK20CS3006.html'
+            })
+
+            .when('/URK20CS2042', {
+                templateUrl: 'URK20CS2042.html'
+            })
+
+            .when('/URK20CS3023', {
+                templateUrl: 'URK20CS3023.html'
+            })
+
+            .when('/URK20CS3017', {
+                templateUrl: 'URK20CS3017.html'
+            })
+
+            .otherwise({
+                redirectTo: '/'
+            })
+        })
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body ng-app="myapp" style="font-family: poppins;color: white;">
+    <div style="background-image: url('https://media.istockphoto.com/vectors/abstract-multicolored-gradient-fluid-wave-background-with-geometric-vector-id1372273954?b=1&k=20&m=1372273954&s=170667a&w=0&h=dBDUVAQPDACfjQ-QcyedtfhJther8bMbSUrAfHyEUEQ=');background-repeat:no-repeat;background-size:cover;width: 100%;height: 100%;">
+        <br><br>
+        <h1 style="text-align:center;"><i>Form Validation</i></h1>
+        <form action="" name="myform" style="text-align: center;">
+            Name : <input type="text" name="myname" ng-model="username" required>
+            <span style="color:red" ng-show="myform.myname.$dirty && myform.myname.$error.required">Name is required..</span>
+            <span style="color:green" ng-show="myform.myname.$dirty && myform.myname.$valid">✓</span> <br> <br> Email : <input type="email" name="myemail" ng-model="useremail" required>
+            <span style="color:red" ng-show="myform.myemail.$dirty && myform.myemail.$error.required">Email is required..</span>
+            <span style="color:red" ng-show="myform.myemail.$dirty && myform.myemail.$error.email">Invalid Email address</span>
+            <span style="color:green" ng-show="myform.myemail.$dirty && myform.myemail.$valid">✓</span><br><br> State : <select name="mystate" id="" ng-model="userstate" required>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+            <span style="color:red" ng-show="myform.mystate.$dirty && myform.mystate.$error.required">Select an option..</span>
+            <span style="color:white" ng-show="myform.mystate.$dirty && myform.mystate.$valid">✓</span><br><br>
+            <button ng-disabled="myform.myname.$invalid || myform.myemail.$invalid || myform.mystate.$invalid" ng-click="submit()">Submit</button><br><br><br>
+        </form>
+    </div>
+    <h1 style="text-align: center;color:black;">Routing</h1>
+    <a href="#/!">Home</a> <br>
+    <a href="#!URK20CS2108">URK20CS2108</a>
+    <a href="#!URK20CS2114">URK20CS2114</a>
+    <a href="#!URK20CS3006">URK20CS3006</a>
+    <a href="#!URK20CS2042">URK20CS2042</a>
+    <a href="#!URK20CS3023">URK20CS3023</a>
+    <a href="#!URK20CS3017">URK20CS3017</a>
+    <hr>
+    <div ng-view>
+
+    </div>
+</body>
+
+</html>
